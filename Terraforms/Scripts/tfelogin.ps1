@@ -1,0 +1,1 @@
+Start-Process powershell -ArgumentList "terraform login tfe.cloudeng.cbre.com" -Verb RunAs

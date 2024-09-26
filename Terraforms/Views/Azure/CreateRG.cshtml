@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "CreateRG";
+}
+
+<h2>Create Azure Resource Group</h2>
+<div class="code-box">
+    <pre><code id="codeText1">az pipelines run --organization "https://dev.azure.com/cbre/" --project "Cloud" --folder-path 'Azure/Resource-Groups/Launch' --id 10597 `
+  --variables `
+    APMID='TBD' `
+    BillingApprover='carl.hooley@cbre.com' `
+    BusinessSegment='CIO Office' `
+    BusinessTower='Global Infrastructure Operations' `
+    Environment='prod' `
+    FMC='10020-980924-970100-NONCL' `
+    Service='Azure Arc' `
+    SupportGroup='US ES-Wintel' `
+    subscription='Shared_Prod' `
+    location="East US 2" `
+    app_name='ArcArgus' `
+    rg_environment='PROD' `
+    sreadmin_users='us_sholmberg@cbre.com','us_tpeterson@cbre.com' `
+    readonly_users='' `
+    developer_users=''
+</code></pre>
+    <button onclick="copyToClipboard('codeText1')">Copy</button>
+</div>

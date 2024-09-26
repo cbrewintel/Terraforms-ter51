@@ -1,0 +1,1 @@
+Start-Process powershell -ArgumentList "Az login" -Verb RunAs

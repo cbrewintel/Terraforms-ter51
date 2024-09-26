@@ -1,0 +1,14 @@
+Steps,Command,Link to Form,Can be Coded?
+AZ Login,az login,,Maybe
+Github Login,gh auth login,,Maybe
+TFE Login,tfe.cloudeng.cbre.com/code,,Maybe
+Create Repo,Create your repo,../repo/createrepo,Done
+Sync Repo,Sync your repo,../repo/syncrepo,Done
+Create TFE Team,Via Service Now,https://cbre.service-now.com/nav_to.do?uri=%2Fcatalog_find.do%3Fsysparm_parent%3D%26sysparm_catalog%3D%26sysparm_catalog_view%3Dcatalog_default%26sysparm_processing_hint%3D%26sysparm_tsgroups%3D%26sysparm_view%3Dtext_search%26sysparm_parent_sys_id%3D%26sysparm_parent_table%3D%26sysparm_view%3Dcatalog_default%26sysparm_collection%3D%26sysparm_collectionID%3D%26sysparm_collection_key%3D%26sysparm_search%3DTerraform%2BTeam,Yes
+Create TFE Project,Via Service Now,https://cbre.service-now.com/nav_to.do?uri=%2Fcom.glideapp.servicecatalog_cat_item_view.do%3Fv%3D1%26sysparm_id%3D9d51dc401bdd8ad044b664abbc4bcbbb%26sysparm_link_parent%3D5924d0c2dbf63b8ccdb9d2984b9619a2%26sysparm_catalog%3De0d08b13c3330100c8b837659bba8fb4%26sysparm_catalog_view%3Dcatalog_default%26sysparm_view%3Dtext_search,Yes
+Create TFE Workspace,Via Terraform,https://github.com/CBRE-Shared-Code/terraform-tfe-workspace,Yes
+Link Repo to Workspace,,,Maybe
+Create Resource Group,Via Service Now,https://cbre.service-now.com/nav_to.do?uri=%2Fcatalog_find.do%3Fsysparm_parent%3D5924d0c2dbf63b8ccdb9d2984b9619a2%26sysparm_catalog%3D%26sysparm_catalog_view%3Dcatalog_default%26sysparm_processing_hint%3D%26sysparm_tsgroups%3D%26sysparm_view%3Dtext_search%26sysparm_parent_sys_id%3D%26sysparm_parent_table%3D%26sysparm_view%3Dtext_search%26sysparm_collection%3D%26sysparm_collectionID%3D%26sysparm_collection_key%3D%26sysparm_search%3DAzure%2BResource%2BGroup%2BRequest,Yes
+Pull tags from RG/Account,,,Maybe
+Deploy template,,,Yes
+Update Variables,,,Maybe

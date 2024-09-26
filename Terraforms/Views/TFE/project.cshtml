@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "TFE Project";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="RunProjectPipeline" method="post">
+    <div>
+        <label for="project_name">Project Name:</label>
+        <input type="text" id="project_name" name="project_name" required />
+    </div>
+    <div>
+        <label for="team_names">Team Names:</label>
+        <input type="text" id="team_names" name="team_names" required />
+    </div>
+    <button type="submit">Run Pipeline</button>
+</form>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Sync Repo";
+}
+
+<h1>Sync Repo</h1>
+<p>This form will download and sync your repo based on Subscription.</p>
+
+<form id="downloadForm" asp-controller="Repo" asp-action="DownloadRepo" method="post">
+    <label for="pat">Personal Access Token (PAT):</label>
+    <input type="password" id="pat" name="pat" required>
+    <a href="ghpatinst.html" target="_blank">GitHub PAT Info</a><br><br>
+    <label for="repoUrl">Repository URL:</label>
+    <input type="text" id="repoUrl" name="repoUrl" required>
+    The repository will be /org/repo (Do not include https://github.com/)<br><br>
+    <label>Select Environment:</label><br>
+    <input type="radio" id="prod" name="environment" value="prod" required>
+    <label for="prod">Production</label><br>
+    <input type="radio" id="nonprod" name="environment" value="nonprod" required>
+    <label for="nonprod">Non Prod</label><br>
+    <input type="radio" id="backups" name="environment" value="backups" required>
+    <label for="backups">Backups</label>
+    <span style="color: red; font-weight: bold;">(Don't Use This)</span><br><br>
+    <button type="submit">Download</button>
+</form>
+<div id="downloadStatus"></div>

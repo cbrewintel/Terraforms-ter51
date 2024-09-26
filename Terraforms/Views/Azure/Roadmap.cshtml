@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Terraforms.Models.AzRoadmapItem>
+
+@{
+    ViewData["Title"] = "Roadmap";
+}
+
+<h2>AZ RoadMap</h2>
+
+<table class="roadmap-table">
+    <thead>
+        <tr>
+            <th>Step</th>
+            <th>Command</th>
+            <th>Link to Form</th>
+            <th>Can be Coded?</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Step</td>
+                <td>@item.Command</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.LinkToForm))
+                    {
+                        <a href="@item.LinkToForm" target="_blank">Form/Link</a>
+                    }
+                </td>
+                <td>@item.CanBeCoded</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

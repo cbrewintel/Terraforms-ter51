@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Cloud Logins";
+}
+
+<h2>Terraform Login</h2>
+<button onclick="runTFELogin()">Run Terraform Login</button>
+
+<h2>Azure Login</h2>
+<button onclick="runAzureLogin()">Run Azure Login</button>
+
+<script>
+    function runAzureLogin() {
+        fetch('/Logins/RunAzureLogin', {
+            method: 'POST'
+        }).then(response => {
+            if (response.ok) {
+                alert('Azure login command executed successfully.');
+            } else {
+                alert('Failed to execute Azure login command.');
+            }
+        });
+    }
+
+        function runTFELogin() {
+            fetch('/Logins/RunTFELogin', {
+                method: 'POST'
+            }).then(response => {
+                if (response.ok) {
+                    alert('TFE login command executed successfully.');
+                } else {
+                    alert('Failed to execute TFE login command.');
+                }
+            });
+        }
+</script>

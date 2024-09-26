@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Create Repo";
+}
+
+<h1>Create Repo</h1>
+<p>This will create a GitHUb Repo. CBREWintel org default for testing</p>
+
+<form id="createForm" asp-controller="Repo" asp-action="CreateRepo" method="post">
+    <label for="pat">Personal Access Token (PAT):</label>
+    <input type="password" id="pat" name="pat" required>
+    <a href="ghpatinst.html" target="_blank">GitHub PAT Info</a><br><br>
+    <label for="orgName">Organization Name:</label>
+    <input type="text" id="orgName" name="orgName" value="cbrewintel" readonly><br><br>
+    <label for="repoName">Repository Name:</label>
+    <input type="text" id="repoName" name="repoName" required><br><br>
+    <label for="repoDescription">Repository Description:</label>
+    <input type="text" id="repoDescription" name="repoDescription"><br><br>
+    <label for="private">Private Repository:</label>
+    <input type="checkbox" id="private" name="private"><br><br>
+    <button type="submit">Create Repository</button>
+</form>
+<div id="createStatus"></div>
+
+@section Scripts {
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const createForm = document.getElementById('createForm');
+                const createStatus = document.getElementById('createStatus');
+
+                createForm.addEventListener('submit', async (event) => {
+                    event.preventDefault();
+
+                    const pat = document.getElementById('pat').value;
+                    const repoName = document.getElementById('repoName').value;
+                    const repoDescription = document.getElementById('repoDescription').value;
+                    const isPrivate = document.getElementById('private').checked;
+
+                    const response = await fetch('@Url.Action("CreateRepo", "Repo")', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ pat, repoName, repoDescription, isPrivate })
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        createStatus.innerHTML = `${result.message}: <a href="${result.repoUrl}" target="_blank">${result.repoUrl}</a> <button onclick="copyToClipboard('${result.repoUrl}')">Copy</button>`;
+                    } else {
+                        createStatus.textContent = result.message;
+                    }
+                });
+            });
+
+            function copyToClipboard(text) {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('Repository URL copied to clipboard');
+                }).catch(err => {
+                    alert('Failed to copy: ', err);
+                });
+            }
+        </script>
+}

@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Terraforms</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Terraforms.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="flex-container">
+        <div class="sidebar">
+            <h2>Wintel Terraforms</h2>
+            <div class="section">
+                <h4>Github</h4>
+                <ul>
+                    <li><a asp-area="" asp-controller="Repo" asp-action="CreateRepo">Create Repo</a></li>
+                    <li><a asp-area="" asp-controller="Repo" asp-action="SyncRepo">Sync Repo</a></li>
+                </ul>
+            </div>
+            <div class="section">
+                <h4>Logins</h4>
+                <ul>
+                    <li><a asp-area="" asp-controller="Logins" asp-action="LoginsView">Login Parts</a></li>
+                </ul>
+            </div>
+            <div class="section">
+                <h4>TFE</h4>
+                <ul>
+                    <li><a asp-area="" asp-controller="TFE" asp-action="TFETeams">Create Teams</a></li>
+                    <li><a asp-area="" asp-controller="TFE" asp-action="TFEProject">Create Project</a></li>
+                </ul>
+            </div>
+            <div class="section">
+                <h4>Azure</h4>
+                <ul>
+                    <li><a asp-area="" asp-controller="Azure" asp-action="Roadmap">RoadMap</a></li>
+                    <li><a asp-area="" asp-controller="Azure" asp-action="CreateRG">Create RG</a></li>
+                    <li><a asp-area="" asp-controller="Azure" asp-action="VMTemplate">VM Template</a></li>
+                    <li><a asp-area="" asp-controller="Azure" asp-action="Decommission">Decommission</a></li>
+                </ul>
+            </div>
+            <div class="section">
+                <h4>AWS</h4>
+                <ul>
+                    <li><a asp-area="" asp-controller="AWS" asp-action="CreateAccount">Create Account</a></li>
+                    <li><a asp-area="" asp-controller="AWS" asp-action="InstanceTemplate">Instance Template</a></li>
+                    <li><a asp-area="" asp-controller="AWS" asp-action="Decommission">Decommission</a></li>
+                </ul>
+            </div>
+            <div class="section">
+                <h4>VMWare</h4>
+                <ul>
+                    <li><a asp-area="" asp-controller="VMWare" asp-action="CreateVM">Create VM</a></li>
+                    <li><a asp-area="" asp-controller="VMWare" asp-action="Decommission">Decommission</a></li>
+                </ul>
+            </div>
+            <div class="section">
+                <h4>Views</h4>
+                <ul>
+                    <li><a href="#" onclick="switchToDarkMode()">Dark Mode</a></li>
+                    <li><a href="#" onclick="switchToLightMode()">Light Mode</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-content">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            © 2024 - Terraforms - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
